@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:netfox/screens/MainScreen.dart';
 
 import 'Animation/FadeAnimation.dart';
 
@@ -12,7 +14,11 @@ void main() => runApp(
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(
+        statusBarColor: Color.fromARGB(255, 239, 123, 17),
+    ),
+    child:  Scaffold(
         backgroundColor: Color.fromARGB(255, 239, 123, 17),
         body: SingleChildScrollView(
           child: Container(
@@ -74,19 +80,22 @@ class HomePage extends StatelessWidget {
                         ),
                       )),
                       SizedBox(height: 30,),
-                      FadeAnimation(2, Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            gradient: LinearGradient(
-                                colors: [
-                                  Color.fromARGB(255, 255, 255, 255),
-                                  Color.fromARGB(255, 255, 255, 255),
-                                ]
-                            )
-                        ),
-                        child: Center(
-                          child: Text("Login", style: TextStyle(color: Color.fromARGB(255, 240, 128, 19), fontWeight: FontWeight.bold),),
+                      FadeAnimation(2, GestureDetector(
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>MainScreen()));},
+                        child: Container(
+                          height: 50,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              gradient: LinearGradient(
+                                  colors: [
+                                    Color.fromARGB(255, 255, 255, 255),
+                                    Color.fromARGB(255, 255, 255, 255),
+                                  ]
+                              )
+                          ),
+                          child: Center(
+                            child: Text("Login", style: TextStyle(color: Color.fromARGB(255, 240, 128, 19), fontWeight: FontWeight.bold),),
+                          ),
                         ),
                       )),
                       SizedBox(height: 70,),
@@ -98,6 +107,6 @@ class HomePage extends StatelessWidget {
             ),
           ),
         )
-    );
+    ));
   }
 }
