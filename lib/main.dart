@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:netfox/screens/MainScreen.dart';
 
 import 'Animation/FadeAnimation.dart';
 
 void main() => runApp(
     MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate
+      ],
+      supportedLocales: [
+        const Locale('tr'),
+      ],
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     )
@@ -61,7 +68,7 @@ class HomePage extends StatelessWidget {
                               child: TextField(
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
-                                    hintText: "Email or Phone number",
+                                    hintText: "Kullanıcı Adı",
                                     hintStyle: TextStyle(color: Colors.grey[400])
                                 ),
                               ),
@@ -71,7 +78,7 @@ class HomePage extends StatelessWidget {
                               child: TextField(
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
-                                    hintText: "Password",
+                                    hintText: "Şifre",
                                     hintStyle: TextStyle(color: Colors.grey[400])
                                 ),
                               ),
@@ -94,12 +101,12 @@ class HomePage extends StatelessWidget {
                               )
                           ),
                           child: Center(
-                            child: Text("Login", style: TextStyle(color: Color.fromARGB(255, 240, 128, 19), fontWeight: FontWeight.bold),),
+                            child: Text("Giriş", style: TextStyle(color: Color.fromARGB(255, 240, 128, 19), fontWeight: FontWeight.bold),),
                           ),
                         ),
                       )),
                       SizedBox(height: 70,),
-                      FadeAnimation(1.5, Text("Forgot Password?", style: TextStyle(color: Colors.white),)),
+                      //FadeAnimation(1.5, Text("Forgot Password?", style: TextStyle(color: Colors.white),)),
                     ],
                   ),
                 )
