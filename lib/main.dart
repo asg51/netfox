@@ -88,7 +88,7 @@ class HomePage extends StatelessWidget {
                       )),
                       SizedBox(height: 30,),
                       FadeAnimation(2, GestureDetector(
-                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>MainScreen()));},
+                        onTap: (){Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>MainScreen()), (route) => false);},
                         child: Container(
                           height: 50,
                           decoration: BoxDecoration(
